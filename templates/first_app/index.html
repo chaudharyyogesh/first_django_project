@@ -5,12 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>first_app</title>
-    <link rel="stylesheet" href="{%static 'css/styles.css'%}">
+    <title>django level two</title>
+    <link rel="stylesheet" href="{%static 'css/styles.css'%}"/>
 </head>
 <body>
-    <h1>this is the index.html file showing a picture</h1>
-    <img src="{% static 'images/pic.jpg' %}" alt="nopg" >
+    <h1>hi welcome to django leel two</h1>
+    <h2>here are your accss records:</h2>
+    <div class="djangotwo">
+        <!-- access_record tag created in the views.py file -->
+        {%if access_records%}
+        <table>
+            <thead>
+                <th>
+                    site name
+                </th>
+                <th>
+                    date accessed
+                </th>
+            </thead>
+             <!--logic that loops through every records in access record for creating rows in the table  -->
+        {%for acc in access_records%}
+        <tr>
+            <td>{{acc.name}}</td>
+            <td>{{acc.date}}</td>
+        </tr>
+        {%endfor%}
+        </table>
+
+        {%else%}
+        <p>no access record found!!</p>
+        {%endif%}
+
+       
+
+
+    </div>
     
 </body>
 </html>
